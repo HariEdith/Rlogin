@@ -1,0 +1,28 @@
+<form [formGroup]="registerForm" (submit)="onSubmit()">
+  <div>
+    <label>Name:</label>
+    <input type="text" formControlName="name">
+    <div class="error-message">{{ nameError }}</div>
+  </div>
+  <div>
+    <label>Email:</label>
+    <input type="email" formControlName="email">
+    <div class="error-message">{{ emailError }}</div>
+  </div>
+  <div>
+    <label>Password:</label>
+    <input type="password" formControlName="password">
+    <div class="error-message">{{ passwordError }}</div>
+  </div>
+  <div>
+    <label>Age:</label>
+    <input type="number" formControlName="age">
+    <div class="error-message">{{ ageError }}</div>
+  </div>
+  <div>
+    <label>Mobile Number:</label>
+    <input type="text" formControlName="mobileNumber">
+    <div class="error-message">{{ mobileNumberError }}</div>
+  </div>
+  <button type="submit">Register</button>
+</form>
