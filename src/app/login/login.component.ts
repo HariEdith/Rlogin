@@ -25,7 +25,7 @@ export class LoginComponent {
       const user = this.users.find(u => u.email === email && u.password === password);
       if (user) {
         console.log('Login success');
-        // You can emit an event here if needed
+        
       } else {
         this.loginError = 'Invalid email or password';
         console.log('Login failed');
