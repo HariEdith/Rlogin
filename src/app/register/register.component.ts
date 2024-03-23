@@ -22,7 +22,7 @@ export class RegisterComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.pattern('^(?=.*[!@#$%^&*])(?=.*[a-zA-Z]).{8,}$')]],
       age: ['', [Validators.required, Validators.min(18)]],
-      mobileNumber: ['', [Validators.required, Validators.pattern('^\\d{10}$')]]
+      mobileNumber: ['', [Validators.required]]
     });
   }
 
@@ -38,7 +38,7 @@ export class RegisterComponent {
       this.emailError = this.registerForm.controls['email'].errors ? 'Enter a valid email address.' : '';
       this.passwordError = this.registerForm.controls['password'].errors ? 'Password is required and must have minimum 8 characters with at least one special character.' : '';
       this.ageError = this.registerForm.controls['age'].errors ? 'Age is required and must be at least 18.' : '';
-      this.mobileNumberError = this.registerForm.controls['mobileNumber'].errors ? 'Mobile number is required and must contain exactly 10 digits.' : '';
+      this.mobileNumberError = this.registerForm.controls['mobileNumber'].errors ? 'enter number is required.' : '';
     }
   }
 }
