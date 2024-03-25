@@ -22,7 +22,7 @@ export class RegisterComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.pattern('^(?=.*[!@#$%^&*])(?=.*[a-zA-Z]).{8,}$')]],
       age: ['', [Validators.required, Validators.min(18)]],
-      mobileNumber: ['', [Validators.required]]
+      mobileNumber: ['', [Validators.required,Validators.max(9999999999),Validators.min(1000000000)]]
     });
   }
 
@@ -31,14 +31,14 @@ export class RegisterComponent {
       const { name, email, password, age, mobileNumber } = this.registerForm.value;
       this.register.emit({ name, email, password, age, mobileNumber });
       console.log('Registration success');
-      console.log('Name:', name, 'Email:', email, 'Password:', password, 'Age:', age, 'Mobile Number:', mobileNumber);
+      // console.log('Name:', name, 'Email:', email, 'Password:', password, 'Age:', age, 'Mobile Number:', mobileNumber);
       this.registerForm.reset();
     } else {
       this.nameError = this.registerForm.controls['name'].errors ? 'Name is required and must contain only letters.' : '';
       this.emailError = this.registerForm.controls['email'].errors ? 'Enter a valid email address.' : '';
       this.passwordError = this.registerForm.controls['password'].errors ? 'Password is required and must have minimum 8 characters with at least one special character.' : '';
       this.ageError = this.registerForm.controls['age'].errors ? 'Age is required and must be at least 18.' : '';
-      this.mobileNumberError = this.registerForm.controls['mobileNumber'].errors ? 'enter number is required.' : '';
+      this.mobileNumberError = this.registerForm.controls['mobileNumber'].errors ? 'enter 10 digit number is required.' : '';
     }
   }
 }
